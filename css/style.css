@@ -1,0 +1,1092 @@
+@import "./fonts.css";
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+}
+li {
+  list-style: none;
+}
+a,
+a:visited {
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: none;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: inherit;
+  font-size: inherit;
+}
+html,
+body {
+  height: 100%;
+}
+html {
+  font-size: 18px;
+  scroll-behavior: smooth;
+}
+body {
+  font-family: "Gelion";
+  font-weight: 500;
+  line-height: 1;
+  background-color: rgba(249, 189, 189, 0.1);
+}
+img {
+  max-width: 100%;
+  vertical-align: top;
+}
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  width: 100%;
+  min-height: 100%;
+  overflow-y: hidden;
+}
+
+[class*="__container"] {
+  max-width: 1472px;
+  padding: 0 15px;
+  margin: 0 auto;
+}
+
+.btn {
+}
+
+.subtitle {
+  font-family: "Red Hat Display", sans-serif;
+  font-weight: 700;
+  color: #fa5652;
+}
+
+.text {
+  font-weight: 400;
+  text-transform: capitalize;
+  color: #4b4f51;
+}
+
+.header {
+  padding: 33px 0 15px;
+}
+.header.active {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 10px 0;
+  width: 100%;
+  background: linear-gradient(360deg, rgba(255, 241, 241, 1) 100%, rgba(255, 241, 241, 0) 108.69%);
+  animation: headerShow 0.7s ease 0s 1 forwards;
+  z-index: 1000;
+}
+.header__body {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.header__nav {
+  flex: 1 1 auto;
+  display: flex;
+}
+.header__burger {
+  position: relative;
+  width: 30px;
+  height: 18px;
+  background-color: transparent;
+  display: none;
+  z-index: 1001;
+}
+.header__burger span,
+.header__burger::before,
+.header__burger::after {
+  position: absolute;
+  display: block;
+  left: 0;
+  width: 100%;
+  height: 10%;
+  background-color: #000;
+  transition: transform 0.5s ease;
+}
+
+.header__burger span {
+  top: 50%;
+  transform: scale(1) translate(0, -50%);
+}
+.header__burger::before {
+  content: "";
+  top: 0;
+}
+.header__burger::after {
+  content: "";
+  bottom: 0;
+}
+.header__burger.active::before {
+  top: 50%;
+  transform: rotate(-45deg) translate(0, -50%);
+}
+.header__burger.active span {
+  transform: scale(0) translate(0, -50%);
+}
+.header__burger.active::after {
+  bottom: 50%;
+  transform: rotate(45deg) translate(0, 50%);
+}
+.header__list {
+  display: flex;
+  align-items: center;
+  column-gap: 45px;
+  margin: 0px 40px 0px auto;
+}
+.header__item {
+}
+.header__link {
+  position: relative;
+  line-height: 122.22%;
+  color: #035755;
+  padding: 0px 0px 9px 0px;
+  transition: color 0.3s ease;
+}
+.header__link.active,
+.header__link:hover {
+  color: #fb4c47;
+}
+.header__link.active::before {
+  content: "";
+  position: absolute;
+  display: block;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, 0);
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: #fa5652;
+}
+.header__btn {
+  position: relative;
+  padding: 16px 45px 17px;
+  line-height: 122.22%;
+  color: #ff383d;
+  border: 2px solid #fb4c47;
+  border-radius: 46px;
+  overflow: hidden;
+  transition: color 0.5s ease, border 0.3s ease;
+  z-index: 10;
+}
+.header__btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 0;
+  border-radius: 46px;
+  background-color: #fb4c47;
+  transition: height 0.5s ease;
+  z-index: -1;
+}
+.header__btn:hover {
+  color: #fff;
+  border: 2px solid transparent;
+}
+.header__btn:hover::before {
+  height: 100%;
+}
+
+.main {
+  flex: 1 1 auto;
+}
+
+.page-main {
+  padding: 36px 0px;
+}
+.page-main__container {
+  max-width: unset;
+  padding: 0px 0px 0px max(15px, calc((100vw - 1472px) / 2));
+  margin: 0;
+}
+.page-main__body {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.page-main__column:first-child {
+  max-width: 641px;
+}
+.page-main__subtitle {
+  font-size: 32px;
+  line-height: 122%;
+}
+.page-main__subtitle:not(:last-child) {
+  margin: 0px 0px 36px 0px;
+}
+.page-main__title {
+  font-family: "Red Hat Display", sans-serif;
+  font-weight: 700;
+  font-size: 52px;
+  line-height: 139%;
+  text-transform: capitalize;
+  color: #035755;
+}
+.page-main__title:not(:last-child) {
+  margin: 0px 0px 29px 0px;
+}
+.page-main__text {
+  font-size: 24px;
+  line-height: 190%;
+}
+.page-main__text:not(:last-child) {
+  margin: 0px 0px 54px 0px;
+}
+.page-main__btn {
+  display: inline-block;
+  padding: 24px 57px 28px 66px;
+  background-color: #fb4c47;
+  box-shadow: 0px 8px 87px rgba(0, 0, 0, 0.1);
+  border-radius: 65px;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 120.833%;
+  text-transform: capitalize;
+  color: #ffffff;
+  border: 2px solid transparent;
+  transition: border 0.5s ease, color 0.5s ease, background-color 0.5s ease;
+}
+.page-main__btn:hover {
+  border: 2px solid #fb4c47;
+  color: #fb4c47;
+  background-color: transparent;
+}
+
+.coronavirus {
+  position: relative;
+  padding: 100px 0 72px;
+  background-color: #fff;
+  overflow: hidden;
+  z-index: 100;
+}
+.coronavirus::before {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: 50px;
+  width: 286px;
+  height: 290px;
+  transform: translate(47%, 0);
+  background: url("../img/coronavirus-big.svg") 0 0 no-repeat;
+  z-index: -1;
+}
+.coronavirus__body {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.coronavirus__column:first-child {
+  position: relative;
+  top: 0;
+  left: -171px;
+}
+.coronavirus__column:last-child {
+  max-width: 648px;
+}
+.coronavirus__subtitle {
+  font-size: 29px;
+  line-height: 124%;
+}
+.coronavirus__subtitle:not(:last-child) {
+  margin: 0px 0px 30px 0px;
+}
+.coronavirus__title {
+  font-size: 50px;
+  line-height: 119%;
+}
+.coronavirus__title:not(:last-child) {
+  margin: 0px 0px 18px 0px;
+}
+.coronavirus__text {
+  font-size: 20px;
+  line-height: 215%;
+}
+.coronavirus__text:not(:last-child) {
+  margin: 0px 0px 56px 0px;
+}
+.coronavirus__btn {
+  display: inline-block;
+  padding: 21px 49px 23px 51px;
+  background-color: rgba(250, 86, 82, 0.15);
+  border-radius: 65px;
+  font-weight: 600;
+  line-height: 120%;
+  text-transform: capitalize;
+  color: #fa5652;
+  border: 2px solid transparent;
+  transition: border 0.5s ease, background-color 0.5s ease;
+}
+.coronavirus__btn:hover {
+  background-color: transparent;
+  border: 2px solid #fa5652;
+}
+
+.contagion {
+  position: relative;
+  background-color: #fff;
+  padding: 0px 0px 148px 0px;
+  text-align: center;
+}
+.contagion::after {
+  content: "";
+  position: absolute;
+  right: 33px;
+  top: 0px;
+  width: 131px;
+  height: 135px;
+  background: url("../img/coronavirus-small.svg") 0 0 no-repeat;
+  z-index: -1;
+}
+.contagion::before {
+  content: "";
+  position: absolute;
+  bottom: 164px;
+  left: calc((100vw - 1472px) / 2);
+  width: 254px;
+  height: 259px;
+  transform: translate(-50%, 0);
+  background: url("../img/coronavirus-medium.svg") 0 0 no-repeat;
+}
+.contagion__subtitle {
+  font-size: 29px;
+  line-height: 124%;
+}
+.contagion__subtitle:not(:last-child) {
+  margin: 0px 0px 28px 0px;
+}
+.contagion__title {
+  font-size: 50px;
+  line-height: 119%;
+}
+.contagion__title:not(:last-child) {
+  margin: 0px 0px 31px 0px;
+}
+.contagion__text {
+  max-width: 570px;
+  margin: 0 auto;
+  line-height: 215%;
+}
+.contagion__text:not(:last-child) {
+  margin-bottom: 111px;
+}
+.contagion__items {
+  display: flex;
+  justify-content: space-between;
+  column-gap: 30px;
+}
+.item-contagion {
+  position: relative;
+  align-self: stretch;
+  flex: 0 1 33.333%;
+  background-color: #fff;
+  box-shadow: 0px 5px 80px rgba(0, 0, 0, 0.08);
+  border-radius: 10px;
+  padding: 65px 52px 78px 53px;
+  overflow: hidden;
+}
+.item-contagion::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 6px;
+  background-color: #fa5652;
+  transform: scale(0);
+  transition: transform 0.5s ease;
+}
+.item-contagion:hover::after {
+  transform: scale(1);
+}
+.item-contagion__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.item-contagion__icon {
+  width: 270px;
+  margin: 0 auto;
+}
+.item-contagion__icon:not(:last-child) {
+  margin-bottom: 56px;
+}
+.item-contagion__title {
+  font-weight: 500;
+  font-size: 36px;
+  line-height: 147%;
+  text-transform: capitalize;
+  color: #035755;
+}
+.item-contagion__title:not(:last-child) {
+  margin: 0px 0px 13px 0px;
+}
+.item-contagion__text {
+  line-height: 185%;
+}
+
+.syptoms {
+  position: relative;
+  background-color: #fff;
+  text-align: center;
+  overflow-x: hidden;
+}
+.syptoms::before {
+  content: "";
+  position: absolute;
+  bottom: 151px;
+  left: calc((100vw - 1472px) / 2);
+  width: 158px;
+  height: 100px;
+  transform: translate(-85%, 0);
+  background: url("../img/symptoms-decor_small.svg") 0 0 no-repeat;
+}
+.syptoms::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: calc((100vw - 1472px) / 2);
+  width: 208px;
+  height: 164px;
+  transform: translate(85%, 0);
+  background: url("../img/symptoms-decor_big.svg") 0 0 no-repeat;
+}
+.syptoms__subtitle {
+  font-size: 29px;
+  line-height: 124%;
+}
+.syptoms__subtitle:not(:last-child) {
+  margin: 0px 0px 30px 0px;
+}
+.syptoms__title {
+  font-size: 50px;
+  line-height: 119%;
+}
+.syptoms__title:not(:last-child) {
+  margin: 0px 0px 31px 0px;
+}
+.syptoms__text {
+  max-width: 716px;
+  margin: 0 auto;
+  line-height: 215%;
+}
+.syptoms__text:not(:last-child) {
+  margin-bottom: 10px;
+}
+.syptoms__image {
+}
+
+.what-should-we-do {
+  position: relative;
+  padding: 118px 0 97px;
+  background-color: #fff;
+  text-align: center;
+  overflow-x: hidden;
+}
+.what-should-we-do::before {
+  content: "";
+  position: absolute;
+  top: 25%;
+  left: 0;
+  width: 287px;
+  height: 297px;
+  transform: translate(-50%, 0);
+  background: url("../img/coronavirus-big_green.svg") 0 0 no-repeat;
+}
+.what-should-we-do::after {
+  content: "";
+  position: absolute;
+  bottom: 50px;
+  right: 0;
+  width: 323px;
+  height: 332px;
+  transform: translate(50%, 0);
+  background: url("../img/coronavirus-big_red.svg") 0 0 no-repeat;
+}
+.what-should-we-do__subtitle {
+  font-size: 29px;
+  line-height: 124%;
+}
+.what-should-we-do__subtitle:not(:last-child) {
+  margin: 0px 0px 30px 0px;
+}
+.what-should-we-do__title {
+  font-size: 50px;
+  line-height: 119%;
+}
+.what-should-we-do__title:not(:last-child) {
+  margin: 0px 0px 31px 0px;
+}
+.what-should-we-do__text {
+  max-width: 650px;
+  line-height: 215%;
+  margin: 0 auto;
+}
+.what-should-we-do__text:not(:last-child) {
+  margin-bottom: 71px;
+}
+.what-should-we-do__body {
+}
+.item-what-should-we-do {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: left;
+}
+.item-what-should-we-do__column {
+  flex: 0 1 50%;
+}
+.item-what-should-we-do__title {
+  font-family: "Gelion";
+  font-weight: 500;
+  font-size: 47px;
+  line-height: 147%;
+  text-transform: capitalize;
+  color: #035755;
+}
+.item-what-should-we-do__title span {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Red Hat Display";
+  font-weight: 700;
+  font-size: 44px;
+  line-height: 145%;
+  color: #fa5652;
+  width: 75px;
+  height: 75px;
+  background: rgba(250, 86, 82, 0.15);
+  margin: 0px 40px 0px 0px;
+  border-radius: 50%;
+}
+.item-what-should-we-do__title:not(:last-child) {
+  margin: 0px 0px 20px 0px;
+}
+.item-what-should-we-do__text {
+  max-width: 532px;
+  line-height: 221%;
+  margin: 0px 0px 0px 130px;
+}
+.item-what-should-we-do:nth-child(odd) .item-what-should-we-do__image {
+  text-align: right;
+}
+
+.item-what-should-we-do:nth-child(even) .item-what-should-we-do__image {
+  text-align: left;
+}
+
+.help {
+  position: relative;
+  padding: 149px 0 143px;
+  background: linear-gradient(360deg, rgba(255, 241, 241, 0.5) 0%, rgba(255, 241, 241, 0) 108.69%);
+  overflow: hidden;
+}
+.help::before {
+  content: "";
+  position: absolute;
+  right: calc((100vw - 1472px) / 2);
+  top: 188px;
+  width: 152px;
+  height: 156px;
+  transform: translate(40%, 0);
+  background: url("../img/coronavirus-small_light.svg") 0 0 no-repeat;
+}
+.help::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: -140px;
+  width: 374px;
+  height: 383px;
+  transform: translate(50%, 0);
+  background: url("../img/coronavirus-big_light.svg") 0 0 no-repeat;
+}
+.help__title {
+  max-width: 661px;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 64px;
+  line-height: 120.3125%;
+  color: #0c6c44;
+}
+.help__title:not(:last-child) {
+  margin-bottom: 62px;
+}
+.form-help {
+  max-width: 790px;
+  margin: 0 auto;
+}
+.form-help__label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #ffffff;
+  box-shadow: 0px 8px 80px rgba(0, 0, 0, 0.06);
+  border-radius: 57px;
+  min-height: 114px;
+  padding: 0 17px 0 41px;
+}
+.form-help__input {
+  flex: 1 1 auto;
+  padding: 20px 0;
+  font-size: 22px;
+  line-height: 118.18%;
+  font-weight: 400;
+  color: #000;
+  margin: 0px 15px 0px 0px;
+}
+.form-help__input::placeholder {
+  color: #758681;
+}
+.form-help__btn {
+  padding: 26px 80px;
+  background-color: #f44a45;
+  border-radius: 157px;
+  font-size: 22px;
+  line-height: 118.18%;
+  color: #ffffff;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: background-color 0.5s ease, color 0.5s ease, border 0.5s ease;
+}
+.form-help__btn:hover {
+  background-color: transparent;
+  border: 2px solid #f44a45;
+  color: #f44a45;
+}
+
+.footer {
+  padding: 0px 0px 67px;
+  background: linear-gradient(360deg, rgba(255, 241, 241, 0.5) 100%, rgba(255, 241, 241, 0) 108.69%);
+}
+.footer__body {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.footer__list {
+  display: flex;
+  align-items: center;
+  column-gap: 60px;
+}
+.footer__link {
+  font-weight: 400;
+  font-size: 23px;
+  line-height: 121.74%;
+  color: #00402e;
+  transition: color 0.3s ease;
+}
+.footer__link:hover {
+  color: #fb4c47;
+}
+.footer__socials {
+  display: flex;
+  align-items: center;
+  column-gap: 30px;
+}
+
+.footer__social svg path {
+  transition: fill 0.5s ease;
+}
+
+.footer__social:hover svg path {
+  fill: #fb4c47;
+}
+
+@media (max-width: 1436px) {
+  .coronavirus__column:first-child {
+    left: 0;
+  }
+  .contagion::before {
+    bottom: auto;
+    top: 30px;
+  }
+  .item-contagion {
+    padding: 45px 52px 20px 53px;
+  }
+  .item-contagion__title {
+    font-size: 32px;
+  }
+  .what-should-we-do {
+    overflow: hidden;
+  }
+  .what-should-we-do::before {
+    bottom: auto;
+    top: 6%;
+  }
+  .what-should-we-do::after {
+    bottom: 0;
+    transform: translate(40%, 40%);
+  }
+  .syptoms::before {
+    bottom: auto;
+    top: 30px;
+    left: 0;
+    transform: translate(-40%, 0);
+  }
+  .syptoms::after {
+    bottom: auto;
+    top: 0px;
+    right: 0;
+    transform: translate(40%, 0);
+  }
+  .help::before {
+    top: 30px;
+    left: 0;
+    bottom: auto;
+  }
+}
+
+@media (max-width: 1150px) {
+  .coronavirus::before {
+    bottom: auto;
+    top: 30px;
+  }
+  .coronavirus__body {
+    flex-wrap: wrap;
+  }
+  .coronavirus__column:first-child {
+    flex: 0 1 45%;
+  }
+  .contagion__items {
+    flex-wrap: wrap;
+    row-gap: 30px;
+  }
+  .item-contagion {
+    flex: 0 1 48%;
+  }
+  .help::after {
+    bottom: auto;
+    top: 0;
+    transform: translate(48%, -50%);
+  }
+  .footer__list {
+    column-gap: 40px;
+  }
+}
+
+@media (max-width: 992px) {
+  .header__list {
+    column-gap: 25px;
+    margin: 0px 20px 0px auto;
+  }
+  .header__btn {
+    padding: 16px 35px 17px;
+  }
+  .page-main__column:first-child > *:not(:last-child) {
+    margin: 0px 0px 20px 0px;
+  }
+  .subtitle {
+    font-size: 24px;
+  }
+  .page-main__title {
+    font-size: 42px;
+  }
+  .text {
+    font-size: 18px;
+  }
+  .page-main__btn {
+    padding: 20px 45px;
+    font-size: 18px;
+  }
+  .contagion {
+    padding: 0px 0px 100px 0px;
+  }
+  .syptoms::before,
+  .syptoms::after {
+    display: none;
+  }
+  .what-should-we-do {
+    padding: 80px 0;
+  }
+  .item-what-should-we-do {
+    column-gap: 20px;
+  }
+  .item-what-should-we-do__title {
+    font-size: 32px;
+  }
+  .item-what-should-we-do__title span {
+    font-size: 36px;
+    margin: 0px 20px 0px 0px;
+  }
+  .item-what-should-we-do__text {
+    margin: 0;
+  }
+  .help {
+    padding: 100px 0px;
+  }
+  .help__title {
+    font-size: 52px;
+  }
+  .help::before,
+  .help::after {
+    display: none;
+  }
+  .form-help__btn {
+    padding: 20px 60px;
+  }
+  .footer__body {
+    flex-direction: column;
+    row-gap: 30px;
+  }
+}
+
+@media (max-width: 800px) {
+  .header__nav {
+    order: 3;
+    flex: 0 0 auto;
+  }
+  .header__burger {
+    display: block;
+  }
+  .header__list {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(360deg, rgba(255, 241, 241, 1) 100%, rgba(255, 241, 241, 0) 108.69%);
+    margin: 0;
+    z-index: 100;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    row-gap: 30px;
+    padding: 50px 0;
+    overflow: auto;
+    transform: translate(100%, 0);
+    transition: transform 0.4s ease;
+  }
+  .header__list.active {
+    transform: translate(0, 0);
+  }
+  .header__link {
+    font-size: 28px;
+  }
+  .header__btn {
+    margin: 0px 15px 0px auto;
+  }
+  .contagion__items {
+    justify-content: center;
+  }
+  .item-contagion {
+    flex: 1 1 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .page-main__body {
+    flex-wrap: wrap;
+    row-gap: 50px;
+  }
+  .page-main__column:last-child {
+    margin: 0px 0px 0px -15px;
+  }
+  .title {
+    font-size: 38px;
+  }
+  .subtitle {
+    font-size: 21px;
+  }
+  .page-main__title {
+    font-size: 36px;
+  }
+  .text {
+    font-size: 16px;
+  }
+  .page-main__btn {
+    padding: 15px 25px;
+    font-size: 16px;
+  }
+  .coronavirus {
+    padding: 25px 0px 50px;
+  }
+  .coronavirus::before {
+    display: none;
+  }
+  .coronavirus__column:first-child {
+    flex: 1 1 100%;
+  }
+  .coronavirus__subtitle:not(:last-child) {
+    margin: 0px 0px 25px 0px;
+  }
+  .coronavirus__text:not(:last-child) {
+    margin: 0px 0px 35px 0px;
+  }
+  .coronavirus__btn {
+    padding: 20px 40px;
+  }
+  .contagion__subtitle:not(:last-child) {
+    margin: 0px 0px 20px 0px;
+  }
+  .contagion__title:not(:last-child) {
+    margin: 0px 0px 25px 0px;
+  }
+  .contagion__text:not(:last-child) {
+    margin-bottom: 50px;
+  }
+  .item-contagion__title {
+    font-size: 28px;
+  }
+  .item-contagion__icon:not(:last-child) {
+    margin-bottom: 35px;
+  }
+  .contagion {
+    padding: 0px 0px 50px 0px;
+  }
+  .syptoms__subtitle:not(:last-child) {
+    margin: 0px 0px 20px 0px;
+  }
+  .syptoms__title:not(:last-child) {
+    margin: 0px 0px 25px 0px;
+  }
+  .what-should-we-do {
+    padding: 50px 0;
+  }
+  .what-should-we-do::before,
+  .what-should-we-do::after {
+    display: none;
+  }
+  .what-should-we-do__subtitle:not(:last-child) {
+    margin: 0px 0px 20px 0px;
+  }
+  .what-should-we-do__title:not(:last-child) {
+    margin: 0px 0px 25px 0px;
+  }
+  .what-should-we-do__text:not(:last-child) {
+    margin-bottom: 35px;
+  }
+  .item-what-should-we-do {
+    row-gap: 50px;
+    justify-content: center;
+  }
+  .item-what-should-we-do:not(:last-child) {
+    margin: 0px 0px 50px 0px;
+  }
+  .item-what-should-we-do:nth-child(odd) {
+    flex-wrap: wrap-reverse;
+  }
+  .item-what-should-we-do:nth-child(even) {
+    flex-wrap: wrap;
+  }
+  .item-what-should-we-do__column {
+    flex: 1 1 100%;
+  }
+  .item-what-should-we-do:nth-child(odd) .item-what-should-we-do__image,
+  .item-what-should-we-do:nth-child(even) .item-what-should-we-do__image {
+    text-align: center;
+  }
+  .item-what-should-we-do__title {
+    font-size: 28px;
+  }
+  .item-what-should-we-do__title span {
+    width: 50px;
+    height: 50px;
+    font-size: 24px;
+    margin: 0px 10px 0px 0px;
+  }
+  .help {
+    padding: 50px 0px;
+  }
+  .help__title {
+    font-size: 38px;
+  }
+  .help__title:not(:last-child) {
+    margin-bottom: 35px;
+  }
+  .form-help__label {
+    min-height: 75px;
+  }
+  .form-help__input {
+    font-size: 16px;
+  }
+  .form-help__btn {
+    padding: 15px 40px;
+    font-size: 16px;
+  }
+  .footer {
+    padding: 0px 0px 50px 0px;
+  }
+  .footer__list {
+    flex-wrap: wrap;
+    row-gap: 15px;
+    justify-content: center;
+  }
+  .footer__link {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 425px) {
+  .header {
+    padding: 15px 0;
+  }
+  .header__logo {
+    flex: 0 0 65px;
+    overflow: hidden;
+  }
+  .header__logo img {
+    max-width: unset;
+  }
+  .header__btn {
+    margin: 0;
+    padding: 13px 35px;
+  }
+  .coronavirus__btn {
+    padding: 15px 35px;
+    font-size: 16px;
+  }
+  .item-contagion {
+    padding: 25px 35px;
+  }
+  .item-contagion__icon {
+    width: auto;
+  }
+  .item-what-should-we-do {
+    row-gap: 30px;
+  }
+  .form-help {
+    max-width: 100%;
+  }
+  .form-help__label {
+    border-radius: 0;
+    flex-wrap: wrap;
+    padding: 10px 15px;
+    row-gap: 15px;
+    justify-content: center;
+  }
+  .form-help__input {
+    margin: 0;
+  }
+  .form-help__btn {
+    flex: 1 1 100%;
+  }
+}
+
+@keyframes headerShow {
+  0% {
+    transform: translate(0, -100%);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
